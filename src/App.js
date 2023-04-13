@@ -9,6 +9,12 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
+  if (darkMode) {
+    document.body.style.backgroundColor = "black";
+  } else {
+    document.body.style.backgroundColor = "white";
+  }
+
   useEffect(() => {
     if (localStorage.getItem("set-notes") !== null) {
       const parsed = JSON.parse(localStorage.getItem("set-notes"));
@@ -46,18 +52,16 @@ function App() {
   };
 
   return (
-    <div className={darkMode ? "dark-mode" : ""}>
-      <div className="container">
-        <Header modeHandler={toggleModeHandler} />
-        <Search onSearch={setSearchText} />
-        <NotesList
-          onDeleteNote={deleteNoteHandler}
-          onAddNote={addNoteHandler}
-          notes={notes.filter((note) =>
-            note.text.toLowerCase().includes(searchText)
-          )}
-        />
-      </div>
+    <div className="container">
+      <Header modeHandler={toggleModeHandler} />
+      <Search onSearch={setSearchText} />
+      <NotesList
+        onDeleteNote={deleteNoteHandler}
+        onAddNote={addNoteHandler}
+        notes={notes.filter((note) =>
+          note.text.toLowerCase().includes(searchText)
+        )}
+      />
     </div>
   );
 }

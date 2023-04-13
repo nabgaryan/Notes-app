@@ -17,7 +17,7 @@ code {
 .container {
   max-width: 960px;
   margin: 0 auto;
-  height: 100vh;
+  height: 100vh; 
   padding-left: 1em;
   padding-right: 1em;
 }

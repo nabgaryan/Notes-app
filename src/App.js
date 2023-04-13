@@ -56,6 +56,10 @@ function App() {
     setDarkMode(!darkMode);
   };
 
+  const filteredNotes = notes.filter((note) =>
+    note.text.toLowerCase().includes(searchText)
+  );
+
   return (
     <div className="container">
       <Header modeHandler={toggleModeHandler} />
@@ -63,9 +67,7 @@ function App() {
       <NotesList
         onDeleteNote={deleteNoteHandler}
         onAddNote={addNoteHandler}
-        notes={notes.filter((note) =>
-          note.text.toLowerCase().includes(searchText)
-        )}
+        notes={filteredNotes}
       />
     </div>
   );

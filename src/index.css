@@ -42,7 +42,10 @@ code {
   flex-direction: column;
   justify-content: space-between;
   min-height: 170px;
-  white-space: pre;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  white-space: pre-line;
 }
 
 .note.new {

@@ -43,7 +43,7 @@ function App() {
       date: localDate,
       id: nanoid(),
     };
-    const updatedNotes = [...notes, newNote];
+    const updatedNotes = [newNote, ...notes];
     setNotes(updatedNotes);
   };
 

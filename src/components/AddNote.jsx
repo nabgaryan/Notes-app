@@ -3,8 +3,13 @@ import { useState } from "react";
 const AddNote = ({ onAddNote }) => {
   const [noteText, setNoteText] = useState("");
 
+  const max = 200;
+  const remaining = max - noteText.length;
+
   const handleChange = (e) => {
-    setNoteText(e.target.value);
+    if (max - e.target.value.length >= 0) {
+      setNoteText(e.target.value);
+    }
   };
 
   const handleSaveClick = () => {
@@ -24,7 +29,7 @@ const AddNote = ({ onAddNote }) => {
         onChange={handleChange}
       />
       <div className="note-footer">
-        <small>200 Remaining</small>
+        <small>{remaining} Remaining</small>
         <button onClick={handleSaveClick}>Save</button>
       </div>
     </div>

@@ -9,11 +9,16 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const [darkMode, setDarkMode] = useState(false);
 
-  if (darkMode) {
-    document.body.style.backgroundColor = "black";
-  } else {
-    document.body.style.backgroundColor = "white";
-  }
+  useEffect(() => {
+    const eyj1 = document.getElementsByTagName("H1")[0];
+    if (darkMode) {
+      document.body.style.backgroundColor = "black";
+      eyj1.style.color = "white";
+    } else {
+      document.body.style.backgroundColor = "white";
+      eyj1.style.color = "black";
+    }
+  }, [darkMode]);
 
   useEffect(() => {
     if (localStorage.getItem("set-notes") !== null) {
